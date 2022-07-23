@@ -74,6 +74,6 @@ app.use(function (req, res, next) {
 app.use(routes);
 
 // turn on connection to db and server
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(process.env.PORT || 3000, () => console.log('Now listening'));
 });
