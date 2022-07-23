@@ -1,0 +1,14 @@
+<div class="post-wrapper">
+  {{#each this}}
+    <div class="card border-secondary">
+        <div class="card-header post-title-box">
+            <p class="post-title"> </p>
+            <p class="post-author"></p>    
+        </div>
+        <div class="card-body">
+            <p class="card-text">{{content}}</p>
+            <p>-- {{user.username}}, {{format_date date_created}}</p>
+        </div>
+    </div>
+      {{/each}}
+</div>

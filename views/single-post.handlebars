@@ -1,0 +1,41 @@
+<!-- displaying articles -->
+{{> post-info post}}
+
+<!-- displaying form and comments-->
+<!-- only display if logged in -->
+<div class="post-wrapper">
+{{#if loggedIn}}
+  <form class="comment-form">
+    <div class="card border-secondary">
+        <div class="card-header post-title-box">
+            <p class="post-title"><input type="hidden" id="post_id" value="{{post.id}}"></p>
+            <p class="post-author"></p>    
+        </div>
+        <div class="card-body">
+            <p class="card-text">Comment</p>
+            <textarea class="txtAreaComment" id="content"></textarea>
+            <button type="submit" class="btn btn-secondary login-button">Submit</button>
+        </div>
+    </div>
+  </form>
+{{/if}}
+</div>
+{{#if loggedIn}}
+<div class="post-wrapper">
+  {{#each post.comments}}
+  <div class="card border-secondary">
+    <div class="card-header post-title-box">
+      <p class="post-title"> </p>
+      <p class="post-author"></p>    
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{content}}</p>
+      <p>--{{user.username}}, {{date_created}}</p>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}
+{{#if loggedIn}}
+<script src="/js/comment.js"></script>
+{{/if}}
