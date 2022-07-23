@@ -7,8 +7,6 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 const exphbs = require('express-handlebars');
 
-const PORT = process.env.PORT || 3001;
-
 //Set up handlebars.js engine with custom helpers
 const hbs = exphbs.create({ 
   helpers: { 
@@ -77,5 +75,5 @@ app.use(routes);
 
 // turn on connection to db and server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(process.env.PORT, () => console.log('Now listening'));
 });
