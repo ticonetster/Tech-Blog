@@ -9,18 +9,7 @@ const exphbs = require('express-handlebars');
 
 //Set up handlebars.js engine with custom helpers
 const hbs = exphbs.create({ 
-  helpers: { 
-    format_date: date => {
-      return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-    },
-    format_plural: (word, amount) => {
-      if (amount !== 1) {
-        return `${word}s`;
-      }
-  
-      return word;
-  }
-   },
+  helpers:  helpers ,
   defaultLayout: 'main',
   partialsDir: ['views/partials/']
 });
